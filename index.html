@@ -3,32 +3,18 @@
 <head>
 	<title>Time Since Birth Calculator</title>
 	<style>
-		body {
-			background-color: black;
-			color: orange;
-		}
-
-		h1 {
-			font-size: 48px;
-			text-align: center;
-			margin-top: 20px;
-			color: orange;
-			font-weight: bold;
-		}
-
 		label {
 			font-size: 24px;
 			text-align: center;
-			margin-top: 20px;
+			margin-top: 50px;
 			width: 100%;
 			display: block;
-			color: orange;
-			font-weight: bold;
+			color: red;
 		}
 	</style>
 	<script>
 		// Set the birth date
-		var birthDate = new Date('2023-03-07T14:51:00'); // This sets the birth date to '2023-03-07 14:51:00' (2:51 PM)
+		var birthDate = new Date('2023-03-07');
 
 		function update_time_since_birth() {
 			// Get the current date and time
@@ -61,4 +47,15 @@
 			} else {
 				// Update the output label to display the time since birth and the countdown to the 1st birthday
 				var age = years;
-				document.getElementById("output-label").innerHTML = age + " years, " + days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " seconds. <br>Time left to 1st birthday: " + days_to_one_year_old + " days, " + hours_to_one_year_old +
+				document.getElementById("output-label").innerHTML = age + " years, " + days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " seconds. <br>Time left to 1st birthday: " + days_to_one_year_old + " days, " + hours_to_one_year_old + " hours, " + minutes_to_one_year_old + " minutes, " + seconds_to_one_year_old + " seconds.";
+			}
+
+			// Call this function again after 1 second
+			setTimeout(update_time_since_birth, 1000);
+		}
+	</script>
+</head>
+<body onload="update_time_since_birth()">
+	<label id="output-label"></label>
+</body>
+</html>
