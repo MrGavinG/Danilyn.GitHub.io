@@ -5,7 +5,7 @@
 	<style>
 		body {
 			background-color: black;
-			color: lavender;
+			color: red; /* Changed the color to red */
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -55,58 +55,10 @@
 			var hours_to_next_birthday = Math.floor(time_to_next_birthday / (60 * 60 * 1000)) % 24;
 			var minutes_to_next_birthday = Math.floor(time_to_next_birthday / (60 * 1000)) % 60;
 			var seconds_to_next_birthday = Math.floor(time_to_next_birthday / 1000) % 60;
-	<div style="display: flex; align-items: center; justify-content: center; flex-direction: column; margin-top: 50px;">
-		<label id="output-label"></label>
-		<p style="font-size: 18px; margin-top: 50px;">Last updated: March 2023</p>
-	</div>
 
-	<script>
-		// Set the birth date for time since birth
-		var birthDate = new Date('2023-03-07T14:51:00');
-
-		// Set the birth date for countdown to next birthday
-		var nextBirthdayDate = new Date();
-
-		function update_time_since_birth() {
-			// Get the current date and time
-			var now = new Date();
-
-			// Calculate the difference between now and birth date
-			var delta = now - birthDate;
-
-			// Calculate the time since birth in different units of time
-			var years = Math.floor(delta / (365 * 24 * 60 * 60 * 1000));
-			var days = Math.floor(delta / (24 * 60 * 60 * 1000)) % 365;
-			var hours = Math.floor(delta / (60 * 60 * 1000)) % 24;
-			var minutes = Math.floor(delta / (60 * 1000)) % 60;
-			var seconds = Math.floor(delta / 1000) % 60;
-
-			// Calculate the countdown to next birthday
-			var current_age = delta % (365 * 24 * 60 * 60 * 1000);
-			var one_year = 365 * 24 * 60 * 60 * 1000;
-			nextBirthdayDate.setFullYear(birthDate.getFullYear());
-			if (now > nextBirthdayDate) {
-				// This year's birthday has already passed, calculate time until next birthday
-				nextBirthdayDate.setFullYear(birthDate.getFullYear() + 1);
-				var age = years + 1;
-			} else {
-				// This year's birthday hasn't passed yet, use current year
-				var age = years;
-			}
-
-			// Check if the birthday has been reached
-			if (now.getMonth() == birthDate.getMonth() && now.getDate() == birthDate.getDate() && hours == 14 && minutes == 51 && seconds == 0) {
-				// Update the output label to display the birthday message
-				document.getElementById("output-label").innerHTML = "Happy 1st Birthday Danilyn!!!";
-			} else {
-				// Update the output label to display the time since birth and the countdown to the next birthday
-				var nextBirthdayAge = age + 1;
-				var days_to_next_birthday = Math.floor((nextBirthdayDate - now) / (24 * 60 * 60 * 1000));
-				var hours_to_next_birthday = Math.floor((nextBirthdayDate - now) / (60 * 60 * 1000)) % 24;
-// Update the output label with time since birth and countdown to next birthday
-				var output = "I am " + age + " years, " + days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " seconds old.<br>Countdown to " + next_birthday_age + "st Birthday: " + days_to_next_birthday + " days, " + hours_to_next_birthday + " hours, " + minutes_to_next_birthday + " minutes, " + seconds_to_next_birthday + " seconds";
-				document.getElementById("output-label").innerHTML = output;
-			}
+			// Update the label element with time since birth and countdown to next birthday
+			var output = "I am " + years + " years, " + days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " seconds old.<br>Countdown to " + (years + 1) + "st Birthday: " + days_to_next_birthday + " days, " + hours_to_next_birthday + " hours, " + minutes_to_next_birthday + " minutes, " + seconds_to_next_birthday + " seconds";
+			document.getElementById("output-label").innerHTML = output;
 
 			// Schedule the next update
 			setTimeout(update_time_since_birth, 1000);
@@ -114,10 +66,11 @@
 
 		// Call the function for the first time to start the update loop
 		update_time_since_birth();
-	</script>
+</script>
 </head>
 <body>
 	<h1>DANILYN</h1>
 	<label id="output-label"></label>
 </body>
 </html>
+
