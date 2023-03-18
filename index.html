@@ -3,13 +3,26 @@
 <head>
 	<title>Time Since Birth Calculator</title>
 	<style>
+		body {
+			background-color: black;
+		}
+
+		h1 {
+			font-size: 48px;
+			text-align: center;
+			margin-top: 20px;
+			color: lavender;
+			font-weight: bold;
+		}
+
 		label {
 			font-size: 24px;
 			text-align: center;
-			margin-top: 50px;
+			margin-top: 20px;
 			width: 100%;
 			display: block;
 			color: red;
+			font-weight: bold;
 		}
 	</style>
 	<script>
@@ -51,11 +64,4 @@
 			}
 
 			// Call this function again after 1 second
-			setTimeout(update_time_since_birth, 1000);
-		}
-	</script>
-</head>
-<body onload="update_time_since_birth()">
-	<label id="output-label"></label>
-</body>
-</html>
+			setTimeout(update_time_since_birth, 100
