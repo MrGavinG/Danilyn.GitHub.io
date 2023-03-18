@@ -5,13 +5,14 @@
 	<style>
 		body {
 			background-color: black;
+			color: orange;
 		}
 
 		h1 {
 			font-size: 48px;
 			text-align: center;
 			margin-top: 20px;
-			color: lavender;
+			color: orange;
 			font-weight: bold;
 		}
 
@@ -21,13 +22,13 @@
 			margin-top: 20px;
 			width: 100%;
 			display: block;
-			color: red;
+			color: orange;
 			font-weight: bold;
 		}
 	</style>
 	<script>
 		// Set the birth date
-		var birthDate = new Date('2023-03-07');
+		var birthDate = new Date('2023-03-07T14:51:00'); // This sets the birth date to '2023-03-07 14:51:00' (2:51 PM)
 
 		function update_time_since_birth() {
 			// Get the current date and time
@@ -43,25 +44,12 @@
 			var minutes = Math.floor(delta / (60 * 1000)) % 60;
 			var seconds = Math.floor(delta / 1000) % 60;
 
-			// Calculate the countdown to 1st birthday
-			var current_age = delta % (365 * 24 * 60 * 60 * 1000);
-			var one_year = 365 * 24 * 60 * 60 * 1000;
-			var time_to_one_year_old = one_year - current_age;
-			var days_to_one_year_old = Math.floor(time_to_one_year_old / (24 * 60 * 60 * 1000));
-			var hours_to_one_year_old = Math.floor(time_to_one_year_old / (60 * 60 * 1000)) % 24;
-			var minutes_to_one_year_old = Math.floor(time_to_one_year_old / (60 * 1000)) % 60;
-			var seconds_to_one_year_old = Math.floor(time_to_one_year_old / 1000) % 60;
-
-			// Check if the birthday has been reached
-			if (now.getMonth() == birthDate.getMonth() && now.getDate() == birthDate.getDate() && hours == 0 && minutes == 0 && seconds == 0) {
-				// Update the output label to display the birthday message
-				var age = years + 1;
-				document.getElementById("output-label").innerHTML = "Happy " + age + "th Birthday Danilyn!!!";
-			} else {
-				// Update the output label to display the time since birth and the countdown to the 1st birthday
-				var age = years;
-				document.getElementById("output-label").innerHTML = age + " years, " + days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " seconds. <br>Time left to 1st birthday: " + days_to_one_year_old + " days, " + hours_to_one_year_old + " hours, " + minutes_to_one_year_old + " minutes, " + seconds_to_one_year_old + " seconds.";
-			}
-
-			// Call this function again after 1 second
-			setTimeout(update_time_since_birth, 100
+			// ... The rest of your JavaScript code
+		}
+	</script>
+</head>
+<body onload="update_time_since_birth()">
+	<h1>DANILYN</h1>
+	<label id="output-label"></label>
+</body>
+</html>
