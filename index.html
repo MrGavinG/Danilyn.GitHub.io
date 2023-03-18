@@ -48,7 +48,6 @@
 			var hours_to_next_birthday = Math.floor(time_to_next_birthday / (60 * 60 * 1000)) % 24;
 			var minutes_to_next_birthday = Math.floor(time_to_next_birthday / (60 * 1000)) % 60;
 			var seconds_to_next_birthday = Math.floor(time_to_next_birthday / 1000) % 60;
-
 			if (now > nextBirthdayDate) {
 				// This year's birthday has already passed, calculate time until next birthday
 				nextBirthdayDate.setFullYear(now.getFullYear() + 1);
@@ -64,4 +63,16 @@
 				document.getElementById("output-label").innerHTML = "Happy " + age + "th Birthday Danilyn!!!";
 			} else {
 				// Update the output label to display the time since birth and the countdown to the next birthday
-				document.getElementById("output-label").innerHTML = "I am " + age + " years, " + days + " days, " + hours + " hours, " + minutes + " minutes, " +
+				document.getElementById("output-label").innerHTML = "I am " + age + " years, " + days + " days, " + hours + " hours, " + minutes + " minutes, and " + seconds + " seconds old. <br>Countdown to next birthday: " + days_to_next_birthday + " days, " + hours_to_next_birthday + " hours, " + minutes_to_next_birthday + " minutes, and " + seconds_to_next_birthday + " seconds.";
+			}
+
+			// Call this function again after 1 second
+			setTimeout(update_time_since_birth, 1000);
+		}
+	</script>
+</head>
+<body onload="update_time_since_birth()">
+	<h1 style="text-align:center;color:red;font-weight:bold;">DANILYN</h1>
+	<label id="output-label"></label>
+</body>
+</html>
