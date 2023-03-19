@@ -1,45 +1,78 @@
 <!DOCTYPE html>
 <html>
-	<title>DANILYN</title>
-        <h1>DANILYN</h1>
-	<style>
-		body {
-			background-color: black;
-			color: green;
-			text-align: justified; 
-		}
-		h1 {
-			color: red;
-			text-align: center;
-		}
-	</style>
-<body>
-	<!-- Pictures with captions -->
-	<figure>
-		<img src="image1.jpg" alt="My Image 1">
-		<figcaption>Caption for Image 1</figcaption>
-	</figure>
+	<head>
+		<title>DANILYN</title>
+		<style>
+			body {
+				background-color: black;
+				color: green;
+				text-align: justified;
+				display: flex;
+				flex-wrap: wrap;
+			}
 
-	<figure>
-		<img src="image2.jpg" alt="My Image 2">
-		<figcaption>Caption for Image 2</figcaption>
-	</figure>
+			h1 {
+				color: red;
+				text-align: center;
+			}
 
-	<figure>
-		<img src="image3.jpg" alt="My Image 3">
-		<figcaption>Caption for Image 3</figcaption>
-	</figure>
+			.column {
+				flex: 50%;
+				padding: 10px;
+			}
 
-	<figure>
-		<img src="image4.jpg" alt="My Image 4">
-		<figcaption>Caption for Image 4</figcaption>
-	</figure>
+			figure {
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body class="image-grid">
+		<h1>DANILYN</h1>
 
-	<figure>
-		<img src="image5.jpg" alt="My Image 5">
-		<figcaption>Caption for Image 5</figcaption>
-	</figure>
-</body>
+		<div class="column">
+			<figure>
+				<img src="image1.jpg" alt="My Image 1">
+				<figcaption>Caption for Image 1</figcaption>
+			</figure>
+
+			<figure>
+				<img src="image2.jpg" alt="My Image 2">
+				<figcaption>Caption for Image 2</figcaption>
+			</figure>
+
+			<figure>
+				<img src="image3.jpg" alt="My Image 3">
+				<figcaption>Caption for Image 3</figcaption>
+			</figure>
+
+			<figure>
+				<img src="image4.jpg" alt="My Image 4">
+				<figcaption>Caption for Image 4</figcaption>
+			</figure>
+		</div>
+
+		<div class="column">
+			<figure>
+				<img src="image5.jpg" alt="My Image 5">
+				<figcaption>Caption for Image 5</figcaption>
+			</figure>
+
+			<figure>
+				<img src="image6.jpg" alt="My Image 6">
+				<figcaption>Caption for Image 6</figcaption>
+			</figure>
+
+			<figure>
+				<img src="image7.jpg" alt="My Image 7">
+				<figcaption>Caption for Image 7</figcaption>
+			</figure>
+
+			<figure>
+				<img src="image8.jpg" alt="My Image 8">
+				<figcaption>Caption for Image 8</figcaption>
+			</figure>
+		</div>
+	</body>
 </html>
 
 	<script>
