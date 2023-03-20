@@ -1,302 +1,143 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>DANILYN</title>
-		<link rel="icon" href="favicon.ico">
-		<style>
-			/* Reset styles */
-			*,
-			*:before,
-			*:after {
-			  margin: 0;
-			  padding: 0;
-			  box-sizing: border-box;
-			}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DANILYN - Lens Photo Gallery</title>
+    <link rel="icon" href="favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-			a {
-			  color: #007bff;
-			  text-decoration: none;
-			}
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: black;
+            color: green;
+            text-align: justified;
+        }
 
-			img {
-			  max-width: 100%;
-			  height: auto;
-			}
+        header {
+            background-color: #fff;
+            padding: 20px;
+            border-bottom: 1px solid #e6e6e6;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+        }
 
-			/* Header styles */
-			header {
-			  background-color: #fff;
-			  padding: 20px;
-			  border-bottom: 1px solid #e6e6e6;
-			  position: fixed;
-			  top: 0;
-			  left: 0;
-			  right: 0;
-			  z-index: 9999;
-			}
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: red;
+            text-align: center;
+        }
 
-			.logo {
-			  font-size: 24px;
-			  font-weight: bold;
-			}
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 10px;
+            padding: 100px 10px 10px;
+        }
 
-			nav ul {
-			  list-style: none;
-			  margin: 0;
-			  padding: 0;
-			  display: flex;
-			}
+        .gallery-item {
+            overflow: hidden;
+        }
 
-			nav li {
-			  margin: 0 10px;
-			}
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+            transition: all 0.3s ease;
+        }
 
-			nav a {
-			  color: #333;
-			  font-weight: bold;
-			  transition: color 0.3s ease;
-			}
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
 
-			nav a:hover {
-			  color: #007bff;
-			}
+        figcaption {
+            color: #fff;
+            text-align: center;
+            margin-top: 5px;
+        }
 
-			/* Main styles */
-			.main {
-			  padding-top: 100px;
-			}
+        .output-label {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: white;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="logo">DANILYN</h1>
+    </header>
+    <main class="gallery">
+        <figure class="gallery-item">
+            <img src="image1.jpg" alt="My Image 1">
+            <figcaption>Caption for Image 1</figcaption>
+        </figure>
+        <figure class="gallery-item">
+            <img src="image2.jpg" alt="My Image 2">
+            <figcaption>Caption for Image 2</figcaption>
+        </figure>
+        <figure class="gallery-item">
+            <img src="image3.jpg" alt="My Image 3">
+            <figcaption>Caption for Image 3</figcaption>
+        </figure>
+        <!-- Add more photos as needed -->
+    </main>
+    <label id="output-label" class="output-label"></label>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('.gallery img');
+            
+            images.forEach(image => {
+                image.addEventListener('click', () => {
+                    window.open(image.src, '_blank');
+                });
+            });
 
-			.gallery {
-			  display: flex;
-			  flex-wrap: wrap;
-			  justify-content: center;
-			  align-items: center;
-			}
+            update_time_since_birth();
+        });
 
-			.gallery-item {
-			  flex: 0 0 300px;
-			  margin: 10px;
-			  overflow: hidden;
-			}
+        const birthDate = new Date('2023-03-07T14:51:00');
+        const nextBirthdayDate = new Date('2024-03-07T00:00:00');
 
-			.gallery-item img {
-			  width: 100%;
-			  height: auto;
-			  transition: transform 0.3s ease;
-			}
+        function update_time_since_birth() {
+            const now = new Date();
+            const delta = now - birthDate;
 
-			.gallery-item:hover img {
-			  transform: scale(1.1);
-			}
+                        const years = Math.floor(delta / (365 * 24 * 60 * 60 * 1000));
+            const days = Math.floor(delta / (24 * 60 * 60 * 1000)) % 365;
+            const hours = Math.floor(delta / (60 * 60 * 1000)) % 24;
+            const minutes = Math.floor(delta / (60 * 1000)) % 60;
+            const seconds = Math.floor(delta / 1000) % 60;
 
-			/* Footer styles */
-			footer {
-			  background-color: #fff;
-			  color: #333;
-			  padding: 20px;
-			  text-align: center;
-			  border-top: 1px solid #e6e6e6;
-			}
+            const timeToNextBirthday = nextBirthdayDate - now;
+            const daysToNextBirthday = Math.floor(timeToNextBirthday / (24 * 60 * 60 * 1000));
+            const hoursToNextBirthday = Math.floor(timeToNextBirthday / (60 * 60 * 1000)) % 24;
+            const minutesToNextBirthday = Math.floor(timeToNextBirthday / (60 * 1000)) % 60;
+            const secondsToNextBirthday = Math.floor(timeToNextBirthday / 1000) % 60;
 
-			.social-links {
-			  display: flex;
-			  justify-content: center;
-			  align-items: center;
-			}
+            if (now > nextBirthdayDate) {
+                nextBirthdayDate.setFullYear(now.getFullYear() + 1);
+            }
 
-			.social-links a {
-			  color: #333;
-			  margin: 0 10px;
-			  transition: color 0.3s ease;
-			}
+            document.getElementById("output-label").innerHTML = `I am ${years} years, ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds old. <br>Countdown to next birthday: ${daysToNextBirthday} days, ${hoursToNextBirthday} hours, ${minutesToNextBirthday} minutes, and ${secondsToNextBirthday} seconds.`;
 
-			.social-links a:hover {
-			  color: #007bff;
-			}
-
-			/* Custom styles */
-			body {
-			  background-color: black;
-			  color: green;
-			  text-align: justified;
-			}
-
-			.image-grid {
-			  margin: 80px 0;
-			  overflow: hidden;
-			}
-
-			.image-column {
-			  width: 50%;
-			  box-sizing: border-box;
-			  float: left;
-			  padding: 0 10px 20px;
-			}
-
-			h1 {
-			  color: red;
-			  text-align: center;
-			  margin: 10px 0;
-			  font-size: 10.5em;
-			}
-
-			figure {
-			  margin: 0;
-			  margin-bottom: 20px;
-			}
-		</style>
-	</head>
-	<body>
-	
-
-	</head>
-	<body>
-		<header>
-			
-<html>
-
-
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>DANILYN</title>
-		<link rel="icon" href="favicon.ico">
-		<style>
-			body {
-				background-color: black;
-				color: green;
-				text-align: justified;
-			}
-
-			.image-grid {
-				margin: 80px 0;
-				overflow: hidden;
-			}
-
-			.image-column {
-				width: 50%;
-				box-sizing: border-box;
-				float: left;
-				padding: 0 10px 20px;
-			}
-
-			h1 {
-				color: red;
-				text-align: center;
-				margin: 10px 0;
-                font-size: 10.5em;
-			}
-
-			figure {
-				margin: 0;
-				margin-bottom: 20px;
-			}
-		</style>
-	</head>
-	<body class="image-grid">
-		<h1>DANILYN</h1>
-		<main>
-			<div class="image-column">
-				<figure>
-					<img src="image1.jpg" alt="My Image 1">
-					<figcaption>Caption for Image 1</figcaption>
-				</figure>
-
-				<figure>
-					<img src="image2.jpg" alt="My Image 2">
-					<figcaption>Caption for Image 2</figcaption>
-				</figure>
-
-				<figure>
-					<img src="image3.jpg" alt="My Image 3">
-					<figcaption>Caption for Image 3</figcaption>
-				</figure>
-
-				<figure>
-					<img src="image4.jpg" alt="My Image 4">
-					<figcaption>Caption for Image 4</figcaption>
-				</figure>
-			</div>
-
-			<div class="image-column">
-				<figure>
-					<img src="image5.jpg" alt="My Image 5">
-					<figcaption>Caption for Image 5</figcaption>
-				</figure>
-
-				<figure>
-					<img src="image6.jpg" alt="My Image 6">
-					<figcaption>Caption for Image 6</figcaption>
-				</figure>
-
-				<figure>
-					<img src="image7.jpg" alt="My Image 7">
-					<figcaption>Caption for Image 7</figcaption>
-				</figure>
-
-				<figure>
-					<img src="image8.jpg" alt="My Image 8">
-					<figcaption>Caption for Image 8</figcaption>
-				</figure>
-			</div>
-		</main>
-	</body>
+            setTimeout(update_time_since_birth, 1000);
+        }
+    </script>
+</body>
 </html>
 
-	<script>
-		// Set the birth date for time since birth
-		var birthDate = new Date('2023-03-07T14:51:00');
-
-		// Set the birth date for countdown to next birthday
-		var nextBirthdayDate = new Date('2024-03-07T00:00:00');
-
-		function update_time_since_birth() {
-			// Get the current date and time
-			var now = new Date();
-
-			// Calculate the difference between now and birth date
-			var delta = now - birthDate;
-
-			// Calculate the time since birth in different units of time
-			var years = Math.floor(delta / (365 * 24 * 60 * 60 * 1000));
-			var days = Math.floor(delta / (24 * 60 * 60 * 1000)) % 365;
-			var hours = Math.floor(delta / (60 * 60 * 1000)) % 24;
-			var minutes = Math.floor(delta / (60 * 1000)) % 60;
-			var seconds = Math.floor(delta / 1000) % 60;
-
-			// Calculate the countdown to next birthday
-			var current_age = delta % (365 * 24 * 60 * 60 * 1000);
-			var one_year = 365 * 24 * 60 * 60 * 1000;
-			var time_to_next_birthday = nextBirthdayDate - now;
-			var days_to_next_birthday = Math.floor(time_to_next_birthday / (24 * 60 * 60 * 1000));
-			var hours_to_next_birthday = Math.floor(time_to_next_birthday / (60 * 60 * 1000)) % 24;
-			var minutes_to_next_birthday = Math.floor(time_to_next_birthday / (60 * 1000)) % 60;
-			var seconds_to_next_birthday = Math.floor(time_to_next_birthday / 1000) % 60;
-			if (now > nextBirthdayDate) {
-				// This year's birthday has already passed, calculate time until next birthday
-				nextBirthdayDate.setFullYear(now.getFullYear() + 1);
-				var age = years + 1;
-			} else {
-				// This year's birthday hasn't passed yet, use current year
-				var age = years;
-			}
-
-			// Check if the birthday has been reached
-			if (now.getMonth() == nextBirthdayDate.getMonth() && now.getDate() == nextBirthdayDate.getDate() && hours == 0 && minutes == 0 && seconds == 0) {
-				// Update the output label to display the birthday message
-				document.getElementById("output-label").innerHTML = "Happy " + age + "th Birthday Danilyn!!!";
-			} else {
-				// Update the output label to display the time since birth and the countdown to the next birthday
-				document.getElementById("output-label").innerHTML = "I am " + age + " years, " + days + " days, " + hours + " hours, " + minutes + " minutes, and " + seconds + " seconds old. <br>Countdown to next birthday: " + days_to_next_birthday + " days, " + hours_to_next_birthday + " hours, " + minutes_to_next_birthday + " minutes, and " + seconds_to_next_birthday + " seconds.";
-			}
-
-			// Call this function again after 1 second
-			setTimeout(update_time_since_birth, 1000);
-		}
-	</script>
-<body onload="update_time_since_birth()">
-	
-	<label id="output-label"></label>
-</html>	
