@@ -5,91 +5,152 @@
 		<title>DANILYN</title>
 		<link rel="icon" href="favicon.ico">
 		<style>
+			/* Reset styles */
+			*,
+			*:before,
+			*:after {
+			  margin: 0;
+			  padding: 0;
+			  box-sizing: border-box;
+			}
+
+			a {
+			  color: #007bff;
+			  text-decoration: none;
+			}
+
+			img {
+			  max-width: 100%;
+			  height: auto;
+			}
+
+			/* Header styles */
+			header {
+			  background-color: #fff;
+			  padding: 20px;
+			  border-bottom: 1px solid #e6e6e6;
+			  position: fixed;
+			  top: 0;
+			  left: 0;
+			  right: 0;
+			  z-index: 9999;
+			}
+
+			.logo {
+			  font-size: 24px;
+			  font-weight: bold;
+			}
+
+			nav ul {
+			  list-style: none;
+			  margin: 0;
+			  padding: 0;
+			  display: flex;
+			}
+
+			nav li {
+			  margin: 0 10px;
+			}
+
+			nav a {
+			  color: #333;
+			  font-weight: bold;
+			  transition: color 0.3s ease;
+			}
+
+			nav a:hover {
+			  color: #007bff;
+			}
+
+			/* Main styles */
+			.main {
+			  padding-top: 100px;
+			}
+
+			.gallery {
+			  display: flex;
+			  flex-wrap: wrap;
+			  justify-content: center;
+			  align-items: center;
+			}
+
+			.gallery-item {
+			  flex: 0 0 300px;
+			  margin: 10px;
+			  overflow: hidden;
+			}
+
+			.gallery-item img {
+			  width: 100%;
+			  height: auto;
+			  transition: transform 0.3s ease;
+			}
+
+			.gallery-item:hover img {
+			  transform: scale(1.1);
+			}
+
+			/* Footer styles */
+			footer {
+			  background-color: #fff;
+			  color: #333;
+			  padding: 20px;
+			  text-align: center;
+			  border-top: 1px solid #e6e6e6;
+			}
+
+			.social-links {
+			  display: flex;
+			  justify-content: center;
+			  align-items: center;
+			}
+
+			.social-links a {
+			  color: #333;
+			  margin: 0 10px;
+			  transition: color 0.3s ease;
+			}
+
+			.social-links a:hover {
+			  color: #007bff;
+			}
+
+			/* Custom styles */
 			body {
-				background-color: black;
-				color: green;
-				text-align: justified;
+			  background-color: black;
+			  color: green;
+			  text-align: justified;
 			}
 
 			.image-grid {
-				margin: 80px 0;
-				overflow: hidden;
+			  margin: 80px 0;
+			  overflow: hidden;
 			}
 
 			.image-column {
-				width: 50%;
-				box-sizing: border-box;
-				float: left;
-				padding: 0 10px 20px;
+			  width: 50%;
+			  box-sizing: border-box;
+			  float: left;
+			  padding: 0 10px 20px;
 			}
 
 			h1 {
-				color: red;
-				text-align: center;
-				margin: 10px 0;
-                font-size: 10.5em;
+			  color: red;
+			  text-align: center;
+			  margin: 10px 0;
+			  font-size: 10.5em;
 			}
 
 			figure {
-				margin: 0;
-				margin-bottom: 20px;
+			  margin: 0;
+			  margin-bottom: 20px;
 			}
-                       #counters {
-                            text-align: center;
-                            margin-top: 50px;
-                            font-size: 7em;
-            } 
 		</style>
 	</head>
-	<body class="image-grid">
-		<h1>DANILYN</h1>
-		<main>
-			<div class="image-column">
-				<figure>
-					<img src="image1.jpg" alt="My Image 1">
-					<figcaption>Caption for Image 1</figcaption>
-				</figure>
-
-				<figure>
-					<img src="image2.jpg" alt="My Image 2">
-					<figcaption>Caption for Image 2</figcaption>
-				</figure>
-
-				<figure>
-					<img src="image3.jpg" alt="My Image 3">
-					<figcaption>Caption for Image 3</figcaption>
-				</figure>
-
-				<figure>
-					<img src="image4.jpg" alt="My Image 4">
-					<figcaption>Caption for Image 4</figcaption>
-				</figure>
-			</div>
-
-			<div class="image-column">
-				<figure>
-					<img src="image5.jpg" alt="My Image 5">
-					<figcaption>Caption for Image 5</figcaption>
-				</figure>
-
-				<figure>
-					<img src="image6.jpg" alt="My Image 6">
-					<figcaption>Caption for Image 6</figcaption>
-				</figure>
-
-				<figure>
-					<img src="image7.jpg" alt="My Image 7">
-					<figcaption>Caption for Image 7</figcaption>
-				</figure>
-
-				<figure>
-					<img src="image8.jpg" alt="My Image 8">
-					<figcaption>Caption for Image 8</figcaption>
-				</figure>
-			</div>
-		</main>
-	</body>
-</html>
+	<body>
+		<header>
+			<div class="logo">DAN
+<html>
 
 	<script>
 		// Set the birth date for time since birth
