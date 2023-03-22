@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@2.27.0/dist/date-fns.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/date-fns-tz@1.2.0/dist/date-fns-tz.min.js"></script>
+
+    
     <script>
   document.addEventListener("DOMContentLoaded", function () {
     const correctPassword = "test";
@@ -161,13 +166,12 @@
         });
 
         const birthDate = new Date('2023-03-07T14:51:00');
-        const nextBirthdayDate = new Date('2024-03-07T00:00:00');
-
-        function update_time_since_birth() {
-            const now = new Date();
-            const delta = now - birthDate;
-
-                        const years = Math.floor(delta / (365 * 24 * 60 * 60 * 1000));
+        const birthDate = dateFnsTz.zonedTimeToUtc('2023-03-07T14:51:00', 'America/New_York');
+        
+        update_time_since_birth();
+        });
+        
+            const years = Math.floor(delta / (365 * 24 * 60 * 60 * 1000));
             const days = Math.floor(delta / (24 * 60 * 60 * 1000)) % 365;
             const hours = Math.floor(delta / (60 * 60 * 1000)) % 24;
             const minutes = Math.floor(delta / (60 * 1000)) % 60;
