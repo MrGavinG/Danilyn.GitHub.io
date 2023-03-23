@@ -164,10 +164,10 @@
             update_time_since_birth();
         });
 
-        const birthDate = new Date('2023-03-07T14:51:00');
-        const nextBirthdayDate = new Date('2024-03-07T00:00:00');
+           const birthDate = dateFnsTz.zonedTimeToUtc('2023-03-07T14:51:00', 'America/New_York'); // Replace 'America/New_York' with the desired timezone
+           const nextBirthdayDate = dateFnsTz.zonedTimeToUtc('2024-03-07T00:00:00', 'America/New_York'); // Replace 'America/New_York' with the desired timezone
 
-        function update_time_since_birth() {
+            function update_time_since_birth() {
             const now = new Date();
             const delta = now - birthDate;
 
