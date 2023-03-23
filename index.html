@@ -93,6 +93,10 @@
     }
     </style>
 </head>
+
+<script src="https://cdn.jsdelivr.net/npm/date-fns@2.27.0/dist/date-fns.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/date-fns-tz@1.2.0/dist/date-fns-tz.min.js"></script>
+</head>
 <body>
     <header>
         <h1 class="logo">DANILYN</h1>
@@ -160,8 +164,9 @@
             update_time_since_birth();
         });
 
-        const birthDate = new Date('2023-03-07T14:51:00');
-        const nextBirthdayDate = new Date('2024-03-07T00:00:00');
+        const birthDate = dateFnsTz.zonedTimeToUtc('2023-03-07T14:51:00', 'America/New_York'); 
+
+        const nextBirthdayDate = dateFnsTz.zonedTimeToUtc('2024-03-07T00:00:00', 'America/New_York');
 
         function update_time_since_birth() {
             const now = new Date();
