@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const correctPassword = "test";
+    let enteredPassword = prompt("Please enter the password:");
+
+    while (enteredPassword !== correctPassword) {
+      enteredPassword = prompt("Incorrect password. Please try again:");
+    }
+  });
+</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DANILYN - Lens Photo Gallery</title>
@@ -22,35 +33,31 @@
 
         header {
             background-color: #000;
-            padding: 1px 20px 1px; /* top, left/right, bottom */
-            border-bottom: 8px solid #e6e6e6;
-            position: relative;
+            padding: 20px 20px 1px; /* top, left/right, bottom */
+            border-bottom: 3px solid #e6e6e6;
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 9999;
         }
         
-        .output-label {
+        .output-label p {
             display: block;
             text-align: center;
             margin-top: 10px;
             margin-bottom: 10px;
-        }
-
-        .output-label p {
             color: white;
-            font-size: 1.2em;
-            margin-bottom: 5px;
-        }
-
+            font-size: 100.2em;
+            padding-top: 50px; /* Adjust this value to position the text as desired */
+            padding-bottom: 50px;
+}
 
         .logo {
             font-size: 64px;
             font-weight: bold;
             color: turquoise;
             text-align: center;
-            padding-bottom: 5px; /* Adjust this value to control the space */
         }
 
        .gallery {
@@ -98,7 +105,7 @@
 
     </header>
     <main class="gallery">
-      
+        </figure>
         <figure class="gallery-item">
             <img src="image2.jpg" alt="My Image 2">
             <figcaption>Caption for Image 2</figcaption>
@@ -145,11 +152,9 @@
      
         <!-- Add more photos as needed -->
     </main>
-        
-     <script>
+    
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
-            passwordCheck();
-
             const images = document.querySelectorAll('.gallery img');
             
             images.forEach(image => {
@@ -160,20 +165,6 @@
 
             update_time_since_birth();
         });
-
-        function passwordCheck() {
-            const correctPassword = "test";
-            let enteredPassword = prompt("Please enter the password:");
-
-            while (enteredPassword !== correctPassword) {
-                enteredPassword = prompt("Incorrect password. Please try again:");
-            }
-
-            update_time_since_birth();
-        }
-     </script>    
-    
-  
 
         const birthDate = dateFnsTz.zonedTimeToUtc('2023-03-07T14:51:00', 'America/New_York'); 
 
@@ -199,8 +190,8 @@
                 nextBirthdayDate.setFullYear(now.getFullYear() + 1);
             }
 
-            document.getElementById("age").innerText = `I am ${years} years, ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds old.`;
-            document.getElementById("countdown").innerText = `Countdown to next birthday: ${daysToNextBirthday} days, ${hoursToNextBirthday} hours, ${minutesToNextBirthday} minutes, and ${secondsToNextBirthday} seconds.`;
+            document.getElementByClassName("age").innerText = `I am ${years} years, ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds old.`;
+            document.getElementByClassName("countdown").innerText = `Countdown to next birthday: ${daysToNextBirthday} days, ${hoursToNextBirthday} hours, ${minutesToNextBirthday} minutes, and ${secondsToNextBirthday} seconds.`;
 
             setTimeout(update_time_since_birth, 1000);
         }
