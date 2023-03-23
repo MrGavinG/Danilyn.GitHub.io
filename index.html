@@ -95,7 +95,7 @@
 <body>
     <header>
         <h1 class="logo">DANILYN</h1>
-    <div id="output-label">
+        <div class="output-label">
         <p id="age"></p>
         <p id="countdown"></p>
     </div>
@@ -174,7 +174,7 @@
             const now = new Date();
             const delta = now - birthDate;
 
-                        const years = Math.floor(delta / (365 * 24 * 60 * 60 * 1000));
+            const years = Math.floor(delta / (365 * 24 * 60 * 60 * 1000));
             const days = Math.floor(delta / (24 * 60 * 60 * 1000)) % 365;
             const hours = Math.floor(delta / (60 * 60 * 1000)) % 24;
             const minutes = Math.floor(delta / (60 * 1000)) % 60;
@@ -190,8 +190,8 @@
                 nextBirthdayDate.setFullYear(now.getFullYear() + 1);
             }
 
-            document.getElementById("age").innerText = `I am ${years} years, ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds old.`;
-            document.getElementById("countdown").innerText = `Countdown to next birthday: ${daysToNextBirthday} days, ${hoursToNextBirthday} hours, ${minutesToNextBirthday} minutes, and ${secondsToNextBirthday} seconds.`;
+            document.getElementByClassName("age").innerText = `I am ${years} years, ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds old.`;
+            document.getElementByClassName("countdown").innerText = `Countdown to next birthday: ${daysToNextBirthday} days, ${hoursToNextBirthday} hours, ${minutesToNextBirthday} minutes, and ${secondsToNextBirthday} seconds.`;
 
             setTimeout(update_time_since_birth, 1000);
         }
