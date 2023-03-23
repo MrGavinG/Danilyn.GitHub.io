@@ -176,6 +176,10 @@
             const hours = Math.floor(delta / (60 * 60 * 1000)) % 24;
             const minutes = Math.floor(delta / (60 * 1000)) % 60;
             const seconds = Math.floor(delta / 1000) % 60;
+            
+            const nowInTimeZone = dateFnsTz.utcToZonedTime(now, 'America/New_York'); // Replace 'America/New_York' with your desired timezone
+            const nextBirthdayDateInTimeZone = dateFnsTz.utcToZonedTime(nextBirthdayDate, 'America/New_York'); // Replace 'America/New_York' with your desired timezone
+            const timeToNextBirthday = dateFnsTz.differenceInMilliseconds(nextBirthdayDateInTimeZone, nowInTimeZone);
 
             const timeToNextBirthday = nextBirthdayDate - now;
             const daysToNextBirthday = Math.floor(timeToNextBirthday / (24 * 60 * 60 * 1000));
