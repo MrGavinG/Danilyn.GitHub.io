@@ -145,9 +145,11 @@
      
         <!-- Add more photos as needed -->
     </main>
-    
-    <script>
+        
+     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            passwordCheck();
+
             const images = document.querySelectorAll('.gallery img');
             
             images.forEach(image => {
@@ -158,6 +160,20 @@
 
             update_time_since_birth();
         });
+
+        function passwordCheck() {
+            const correctPassword = "test";
+            let enteredPassword = prompt("Please enter the password:");
+
+            while (enteredPassword !== correctPassword) {
+                enteredPassword = prompt("Incorrect password. Please try again:");
+            }
+
+            update_time_since_birth();
+        }
+     </script>    
+    
+  
 
         const birthDate = dateFnsTz.zonedTimeToUtc('2023-03-07T14:51:00', 'America/New_York'); 
 
