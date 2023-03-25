@@ -3,29 +3,8 @@
 <head>
     
     <input type="password" id="password" name="password">
+
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-  const correctPassword = "test";
-  let enteredPassword = "";
-
-  while (enteredPassword !== correctPassword) {
-    enteredPassword = window.prompt("Please enter the password:", "");
-
-    if (enteredPassword !== null) {
-      if (enteredPassword === correctPassword) {
-        window.confirm("Password accepted. Click OK to continue.");
-      } else {
-        window.alert("Incorrect password. Please try again.");
-} else { 
-        window.location.href = "about:blank"; break;
-    }
-  }
-});
-
-   
-  
-</script>
-    <script>
     document.addEventListener("DOMContentLoaded", function () {
   const correctPassword = "test";
   let enteredPassword = "";
