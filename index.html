@@ -5,26 +5,24 @@
     <input type="password" id="password" name="password">
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
   const correctPassword = "test";
   let enteredPassword = "";
 
   while (enteredPassword !== correctPassword) {
     enteredPassword = window.prompt("Please enter the password:", "");
 
-    if (enteredPassword !== null) {
-      if (enteredPassword === correctPassword) {
-        window.confirm("Password accepted. Click OK to continue.");
-      } else {
-        window.alert("Incorrect password. Please try again.");
-} 
+    if (enteredPassword === null) {
+      break; // Break out of the loop when user clicks "cancel"
+    } else if (enteredPassword === correctPassword) {
+      window.confirm("Password accepted. Click OK to continue.");
+    } else {
+      window.alert("Incorrect password. Please try again.");
     }
   }
 });
-
-   
-  
 </script>
+
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
