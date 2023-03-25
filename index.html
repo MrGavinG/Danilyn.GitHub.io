@@ -200,24 +200,6 @@
             setTimeout(update_time_since_birth, 1000);
         }
     </script>
-    
-    <div style="text-align:center; margin-top:50px;">
-    <form id="search-form">
-        <label for="search">Search:</label>
-        <input type="text" id="search" name="search">
-        <input type="submit" value="Submit" onclick="handleSearch(event)">
-    </form>
-</div>
-
-    <script>
-    function handleSearch(event) {
-        event.preventDefault();
-
-        const searchTerm = document.getElementById('search').value;
-        // Add your search logic here
-        console.log('Search term:', searchTerm);
-    }
-</script>
 
 </body>
 </html>
